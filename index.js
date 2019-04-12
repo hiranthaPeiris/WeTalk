@@ -1,4 +1,4 @@
-var http = require('http');
+const http = require('http');
 var fs = require('fs');
 
 //404_response
