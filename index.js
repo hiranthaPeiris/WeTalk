@@ -1,20 +1,46 @@
-const http = require('http');
-var fs = require('fs');
+const express = require('express');
+const app = express();
 
-//404_response
-function send404Response(response) {
-    response.writeHead(404, { 'Content-Type': 'text/plain' });
-    response.write('Error 404: page not found');
-    response.end();
-}
+app.use(express.json());
 
-http.createServer(function (req, res) {
-    console.log("User made a request " + req.url);
-    if (req.method == 'GET' && req.url == '/') {
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        fs.createReadStream("./index.html").pipe(res);
+
+const courses = [
+    { id: 1, name: 'Sandy' },
+    { id: 2, name: 'Rashi' },
+    { id: 3, name: 'Hirantha'}
+];
+
+app.get('/', (req, res) => {
+    res.send("Hello world");
+});
+
+app.get('/api/courses/:id', (req, res) => {
+    const coures = courses.find(c => c.id == parseInt(req.params.id));
+    if (!coures) {
+        res.status(404).send("Not found");
     } else {
-        send404Response(res);
+        res.send(coures)
     }
-}).listen(8080);
-console.log("server is running..");
+});
+
+app.post('/api/courses', (req, res) => {
+    if (!req.body.name || req.body.name.length<3){
+        //send 400 bad request
+        res.status(400).send("Bad request");
+        return;
+    }
+    const coures = {
+        id: courses.length + 1,
+        name: req.body.name
+    };
+    courses.push(coures);
+    res.send(courses);
+});
+
+app.get('/api/dates/:year/:month', (req, res) => {
+    res.send(req.params);
+});
+
+const port = process.env.port || 3000;
+
+app.listen(port, () => console.log(`app listing to port ${port}`));
