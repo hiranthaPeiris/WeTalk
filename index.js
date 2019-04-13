@@ -1,4 +1,5 @@
 const express = require('express');
+const Joi = require('joi');
 const app = express();
 
 app.use(express.json());
@@ -14,6 +15,10 @@ app.get('/', (req, res) => {
     res.send("Hello world");
 });
 
+app.get('/api/courses',(req, res)=>{
+    res.send(courses);
+});
+
 app.get('/api/courses/:id', (req, res) => {
     const coures = courses.find(c => c.id == parseInt(req.params.id));
     if (!coures) {
@@ -23,10 +28,36 @@ app.get('/api/courses/:id', (req, res) => {
     }
 });
 
+app.put('/api/courses/:id',(req, res)=>{
+    //get filtered
+    const course = courses.find(c=> c.id == parseInt(req.params.id));
+    //check null
+    if (!course){
+        res.status(404).send("Name not found");
+        return;
+    }
+
+    //validation using Joi
+    const result = validationCourse(req.body);
+
+    if(result.error){
+        res.status(400).send(result.error.details[0].message);
+        return;
+    }
+    //updating 
+    course.name = req.body.name;
+    res.send(course);
+
+});
+
+
 app.post('/api/courses', (req, res) => {
-    if (!req.body.name || req.body.name.length<3){
+
+    const result = validationCourse(req.body);
+
+    if (result.error){
         //send 400 bad request
-        res.status(400).send("Bad request");
+        res.status(400).send(result.error.details[0].message);
         return;
     }
     const coures = {
@@ -41,6 +72,29 @@ app.get('/api/dates/:year/:month', (req, res) => {
     res.send(req.params);
 });
 
+app.delete('/api/courses/:id', (req, res)=>{
+    const course = courses.find(c=> c.id == parseInt(req.params.id));
+
+    if(!course){
+        res.status(404).send("Name not found");
+        return;
+    }
+
+    //get index of relevent id
+    const index = courses.indexOf(course);
+
+    //delete from the main array
+
+    courses.splice(index,1);
+    res.send(course);
+});
+
+function validationCourse(course) {
+    const schema = {
+        name : Joi.string().min(3).required()
+    };
+    return Joi.validate(course,schema);
+}
 const port = process.env.port || 3000;
 
 app.listen(port, () => console.log(`app listing to port ${port}`));
