@@ -6,16 +6,12 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+//Basic curd test functions 
 const courses = [
   { id: 1, name: 'Sandy' },
   { id: 2, name: 'Rashi' },
   { id: 3, name: 'Hirantha' }
 ];
-
-router.get('/', (req, res) => {
-  res.send("Hello world");
-});
-
 router.get('/api/courses', (req, res) => {
   res.send(courses);
 });
