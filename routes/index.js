@@ -12,16 +12,16 @@ const courses = [
   { id: 3, name: 'Hirantha' }
 ];
 
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
   res.send("Hello world");
 });
 
-app.get('/api/courses', (req, res) => {
+router.get('/api/courses', (req, res) => {
   res.send(courses);
 });
 
 
-app.get('/api/courses/:id', (req, res) => {
+router.get('/api/courses/:id', (req, res) => {
   const coures = courses.find(c => c.id == parseInt(req.params.id));
   if (!coures) {
     res.status(404).send("Not found");
@@ -30,7 +30,7 @@ app.get('/api/courses/:id', (req, res) => {
   }
 });
 
-app.put('/api/courses/:id', (req, res) => {
+router.put('/api/courses/:id', (req, res) => {
   //get filtered
   const course = courses.find(c => c.id == parseInt(req.params.id));
   //check null
@@ -53,7 +53,7 @@ app.put('/api/courses/:id', (req, res) => {
 });
 
 
-app.post('/api/courses', (req, res) => {
+router.post('/api/courses', (req, res) => {
 
   const result = validationCourse(req.body);
 
@@ -70,11 +70,11 @@ app.post('/api/courses', (req, res) => {
   res.send(courses);
 });
 
-app.get('/api/dates/:year/:month', (req, res) => {
+router.get('/api/dates/:year/:month', (req, res) => {
   res.send(req.params);
 });
 
-app.delete('/api/courses/:id', (req, res) => {
+router.delete('/api/courses/:id', (req, res) => {
   const course = courses.find(c => c.id == parseInt(req.params.id));
 
   if (!course) {
