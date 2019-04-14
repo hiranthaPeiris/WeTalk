@@ -1,25 +1,16 @@
 {
-  "name": "WeTalk",
-  "version": "1.0.0",
-  "description": "nodejs chat app",
-  "main": "server.js",
+  "name": "wetalk",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hiranthaPeiris/WeTalk.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/hiranthaPeiris/WeTalk/issues"
-  },
-  "homepage": "https://github.com/hiranthaPeiris/WeTalk#readme",
   "dependencies": {
-    "express": "^4.16.4",
-    "joi": "^14.3.1"
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0"
   }
 }
