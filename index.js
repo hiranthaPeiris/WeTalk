@@ -19,6 +19,7 @@ app.get('/api/courses',(req, res)=>{
     res.send(courses);
 });
 
+
 app.get('/api/courses/:id', (req, res) => {
     const coures = courses.find(c => c.id == parseInt(req.params.id));
     if (!coures) {
