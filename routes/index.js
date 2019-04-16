@@ -6,7 +6,11 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-//Basic curd test functions 
+
+
+
+/*
+//Basic curd test functions on in function array
 const courses = [
   { id: 1, name: 'Sandy' },
   { id: 2, name: 'Rashi' },
@@ -92,5 +96,5 @@ function validationCourse(course) {
     name: Joi.string().min(3).required()
   };
   return Joi.validate(course, schema);
-}
+}*/
 module.exports = router;
