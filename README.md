@@ -28,3 +28,19 @@ npm start
 ```
 This will start the server and open the browser,
 Go to:  [http://localhost:3000](http://localhost:3000) and take a look
+
+## Build With
+* NodeJs
+* Express
+* Socket.io
+* Joi for validations
+
+This package is a nodejs express complete application skeleton with EJS as view engine. you need to have a little knowledge of ejs which is a html preproccessor similar as sass for css. [Socket.io](https://socket.io/) is used as the web socket to make connections. 
+Joi npm package is used for message validation purposes. 
+
+## Contributing
+Feel to make any changes and developments. 
+
+## License
+This project is licensed under the MIT License - see the [LICENSE.md]() file for details.
+
