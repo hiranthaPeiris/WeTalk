@@ -6,14 +6,16 @@
     <script src="/socket.io/socket.io.js"></script>
   </head>
   <body>
+    <div class="head-wapper containter">
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <div id="mario-chat">
+    <p>Welcome to <%= title %> nodeJs chat application by vivoxa labs Inc.</p>
+    </div>
+    <div id="we-talkChat">
       <h2>We Talk</h2>
       <div id="chat-window">
         <div id="output"></div>
       </div>
-      <input id="handle" type="text" placeholder="Handle" />
+      <input id="handle" type="text" placeholder="User" />
       <input id="message" type="text" placeholder="Message" />
       <button id="send">Send</button>
     </div>
