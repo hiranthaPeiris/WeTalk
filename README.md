@@ -42,5 +42,5 @@ Joi npm package is used for message validation purposes.
 Feel to make any changes and developments. 
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE.md]() file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/hiranthaPeiris/WeTalk/blob/master/LICENSE) file for details.
 
