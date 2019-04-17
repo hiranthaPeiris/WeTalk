@@ -35,14 +35,19 @@ app.use('/users', usersRouter);
 //listen to every connection
 io.on('connection', function (socket) {
   console.log("new Connection");
+
+  //Handle a chat event 
+  socket.on('chat',function (data) {
+    console.log(data);
+    io.sockets.emit('chat',data);
+  });
 });
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
-
 
 // error handler
 app.use(function(err, req, res, next) {
