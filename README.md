@@ -5,5 +5,26 @@
 [![GitHub](https://img.shields.io/github/forks/hiranthaPeiris/WeTalk.svg?style=flat-square)](https://github.com/hiranthaPeirs/WeTalk/network)
 [![GitHub followers](https://img.shields.io/github/followers/espadrine.svg?label=Follow&style=social)](https://github.com/hiranthaPeiris)
 
-We talk is a simple chat web application which runs on locally developed using nodeJs. 
+We talk is a simple chat web application which runs on locally developed using nodeJs. This web app developed only for testing purposes and this not a complete version of the application. application will preform simple message sending and displaying on deferent localhost connections.
 ## Getting Started
+Clone the repo as a git clone or any other refered method.
+```bash
+git clone https://github.com/hiranthaPeiris/WeTalk.git
+cd WeTalk
+```
+### Prerequisites
+The following things will be needed to make any developments 
+* Node 8
+* Git installed on pc
+### Install
+Install the package dependancies 
+```bash
+npm install
+```
+### Running the tests
+First we have to start the server in order to see the functionality
+```bash 
+npm start
+```
+This will start the server and open the browser,
+Go to:  [http://localhost:3000](http://localhost:3000) and take a look
