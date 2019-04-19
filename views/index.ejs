@@ -9,23 +9,33 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <script src="/socket.io/socket.io.js"></script>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <div class="head-wapper containter">
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %> nodeJs chat application by vivoxa labs Inc.</p>
+    <div class="head-wapper container-fluid">
+      <h1><%= title %></h1>
+      <p>Welcome to <%= title %> nodeJs chat application by vivoxa labs Inc.</p>
     </div>
     <div id="we-talkChat">
       <h2>We Talk</h2>
       <div id="chat-window">
         <div id="output"></div>
       </div>
-      <input id="handle" type="text" placeholder="User" />
-      <input id="message" type="text" placeholder="Message" />
-      <button id="send">Send</button>
+      <form class="needs-validation" novalidate>
+        <input id="handle"  class="form-control" type="text" placeholder="User" Required/>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <input id="message"  class="form-control" type="text" placeholder="Message" Required/>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </form>
+      <button class="btn btn-primary" id="send">Send</button>
     </div>
     <script src="/javascripts/socket.js"></script>
+    <script src="/javascripts/main.js"></script>
   </body>
 </html>

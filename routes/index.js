@@ -9,8 +9,6 @@ router.get('/', function (req, res, next) {
 });
 
 
-
-
 /*
 //Basic curd test functions on in function array
 const courses = [
