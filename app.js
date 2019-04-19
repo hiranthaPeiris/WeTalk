@@ -13,6 +13,7 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
+const Joi = require('joi');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -39,7 +40,13 @@ io.on('connection', function (socket) {
   //Handle a chat event 
   socket.on('chat',function (data) {
     console.log(data);
-    io.sockets.emit('chat',data);
+    var rst = validationMessage(data);
+    if(rst.error){
+      console.log("fields empty");
+    }else{
+      io.sockets.emit('chat',data);
+      console.log("messeage emited");
+    }
   });
 });
 
@@ -59,5 +66,15 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+function validationMessage(data){
+  const schema = {
+    message :Joi.string().required(),
+    handle : Joi.string().required()
+  };
+  var rst= Joi.validate(data,schema);
+  console.log(rst.error.details[0].message);
+  return rst;
+}
 
 module.exports = {app: app, server: server};
