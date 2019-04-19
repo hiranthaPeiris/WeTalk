@@ -73,7 +73,6 @@ function validationMessage(data){
     handle : Joi.string().required()
   };
   var rst= Joi.validate(data,schema);
-  console.log(rst.error.details[0].message);
   return rst;
 }
 

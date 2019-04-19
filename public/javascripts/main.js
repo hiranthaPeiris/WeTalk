@@ -7,6 +7,7 @@
       var validation = Array.prototype.filter.call(forms, function(form) {
         sendBtn.addEventListener('click', function(event) {
           if (form.checkValidity() === false) {
+            $('.toast').toast({delay:5000}).toast('show');
             event.preventDefault();
             event.stopPropagation();
           }
@@ -15,3 +16,4 @@
       });
     }, false);
   })();
+

@@ -13,7 +13,10 @@ h2{
   padding: 10px 20px;
   color: #575ed8;
 }
-
+#head-wapper{
+  position: relative;
+  z-index: 0;
+}
 #we-talkChat{
   max-width: 600px;
   margin:  auto;
