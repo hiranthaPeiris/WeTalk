@@ -1,12 +1,23 @@
 var express = require('express');
 var router = express.Router();
 
+const db = require('../config/db');
+const collection = "movies";
+
+db.connect((err)=>{
+  if(err){
+    console.log("Unable to connect");
+  }else{
+    console.log("connected");
+  }
+});
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index', { title: 'We Talk' });
-  //console.log("con@index");
+  console.log("con@index");
 });
+
 
 
 /*

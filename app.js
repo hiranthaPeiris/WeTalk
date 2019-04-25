@@ -15,11 +15,12 @@ var io = require('socket.io')(server);
 
 const Joi = require('joi');
 
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(function(req, res, next){
+app.use(function (req, res, next) {
   res.io = io;
   next();
 });
@@ -38,13 +39,13 @@ io.on('connection', function (socket) {
   console.log("new Connection");
 
   //Handle a chat event 
-  socket.on('chat',function (data) {
+  socket.on('chat', function (data) {
     console.log(data);
     var rst = validationMessage(data);
-    if(rst.error){
+    if (rst.error) {
       console.log("fields empty");
-    }else{
-      io.sockets.emit('chat',data);
+    } else {
+      io.sockets.emit('chat', data);
       console.log("messeage emited");
     }
   });
@@ -52,12 +53,12 @@ io.on('connection', function (socket) {
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -67,13 +68,13 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-function validationMessage(data){
+function validationMessage(data) {
   const schema = {
-    message :Joi.string().required(),
-    handle : Joi.string().required()
+    message: Joi.string().required(),
+    handle: Joi.string().required()
   };
-  var rst= Joi.validate(data,schema);
+  var rst = Joi.validate(data, schema);
   return rst;
 }
 
-module.exports = {app: app, server: server};
+module.exports = { app: app, server: server };
