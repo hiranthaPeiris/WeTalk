@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 const db = require('../config/db');
-const collection = "movies";
+const collect = "nodeTest";
+
 
 db.connect((err)=>{
   if(err){
@@ -18,6 +19,17 @@ router.get('/', function (req, res, next) {
   console.log("con@index");
 });
 
+//MongoDB Testing route--Only for testing purposes
+router.get('/getDocs', (req,res)=> {
+  db.getDB().collection(collect).find({}).toArray((err,documents)=>{
+    if(err){
+      console.log(err);
+    }else{
+      console.log(documents);
+      res.send("Hello Doc");
+    }
+  });
+});
 
 
 /*
