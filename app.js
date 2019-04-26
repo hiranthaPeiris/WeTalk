@@ -8,6 +8,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var mongoRouter = require('./routes/mongo');
 
 var app = express();
 var server = require('http').Server(app);
@@ -33,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/mongo',mongoRouter);
 
 //listen to every connection
 io.on('connection', function (socket) {
