@@ -1,17 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-const db = require('../config/db');
-const collect = "nodeTest";
-
-
-db.connect((err)=>{
-  if(err){
-    console.log("Unable to connect");
-  }else{
-    console.log("connected");
-  }
-});
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
