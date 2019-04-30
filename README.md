@@ -40,7 +40,7 @@ This package is a nodejs express complete application skeleton with EJS as view 
 Joi npm package is used for message validation purposes. 
 
 ## Contributing
-Feel to make any changes and developments. checkout [contribution.md]() for guidelines. 
+Feel to make any changes and developments. checkout [contribution.md](https://github.com/hiranthaPeiris/WeTalk/blob/master/CONTRIBUTING.md) for guidelines. 
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/hiranthaPeiris/WeTalk/blob/master/LICENSE) file for details.
