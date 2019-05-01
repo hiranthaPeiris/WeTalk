@@ -5,22 +5,39 @@ socket.on('news', function (data) {
     socket.emit('my other event', { my: 'data' });
 });
 
-//Query DOM
-var handle = document.getElementById('handle'),
+//Query DOM //
+var Hname = document.getElementById('handle'),
     message = document.getElementById('message'),
     sendBtn = document.getElementById('send'),
+    clearBtn = document.getElementById('clear'),
     output = document.getElementById('output');
 
-//Emit event(event listner on btn to send message to the server)
+//Emit event(event listner on btn to send message to the server //
 sendBtn.addEventListener('click',function () {
     socket.emit('chat',{
-        message : message.value,
-        handle : handle.value
+        name : Hname.value,
+        message : message.value
     });
     message.value="";
-})
+});
 
-// Listen for events
+//Handle clear event
+clearBtn.addEventListener('click',function () {
+    socket.emit('clear');
+});
+
+//clear messages
+socket.on('cleared',function () {
+    output.innerHTML='';
+});
+
+// Listen for events //
 socket.on('chat',function (data) {
-    output.innerHTML+= '<p><strong>'+data.handle +': </strong>' + data.message +'</p>';
+    console.log(data);
+    if(data.length){
+        for (let index = 0; index < data.length; index++) {
+            output.innerHTML+= '<p><strong>'+data[index].name +': </strong>' + data[index].message +'</p>'; 
+        }
+    }
+    
 });
