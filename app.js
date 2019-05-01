@@ -16,6 +16,7 @@ var io = require('socket.io')(server);
 
 const Joi = require('joi');
 
+const db = require('./config/db');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -36,10 +37,24 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/mongo',mongoRouter);
 
+//monog connect
+db.connect((err)=>{
+  if(err){
+    console.log("Unable to connect");
+  }else{
+    console.log("connected on socket");
+    var chat = db.getDB().collection("chat_log");
+  }
+});
+
 //listen to every connection
 io.on('connection', function (socket) {
   console.log("new Connection");
 
+  // collection connect
+ 
+
+  
   //Handle a chat event 
   socket.on('chat', function (data) {
     console.log(data);
