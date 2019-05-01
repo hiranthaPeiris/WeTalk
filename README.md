@@ -26,7 +26,7 @@ First we have to start the server in order to see the functionality
 ```bash 
 npm start
 ```
-> warning-->> app takes few seconds to connect and load the data from atlas cloud sever. connect to the web socket after the console log message
+> warning-->> app takes few seconds to connect and load the data from atlas cloud server. connect to the web socket after the console log message
 
 This will start the server and open the browser,
 Go to:  [http://localhost:3000](http://localhost:3000) and take a look
