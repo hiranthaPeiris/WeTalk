@@ -1,7 +1,7 @@
 const MongoClient  = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectID;
 
-const dbName = "sample_mflix";
+const dbName = "vivoxa_weTalk";
 const url = "mongodb+srv://hiranSandman:admin@wetalk-hehrq.mongodb.net/test?retryWrites=true";
 const mongoOptions = {useNewUrlParser : true};
 

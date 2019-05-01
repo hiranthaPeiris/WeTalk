@@ -8,18 +8,6 @@ router.get('/', function (req, res, next) {
   console.log("con@index");
 });
 
-//MongoDB Testing route--Only for testing purposes
-router.get('/getDocs', (req,res)=> {
-  db.getDB().collection(collect).find({}).toArray((err,documents)=>{
-    if(err){
-      console.log(err);
-    }else{
-      console.log(documents);
-      res.send("Hello Doc");
-    }
-  });
-});
-
 
 /*
 //Basic curd test functions on in function array
