@@ -84,7 +84,7 @@ io.on('connection', function (socket) {
   socket.on('clear',(data)=>{
     collection.remove({},()=>{
       console.log("collection cleared..");
-      socket.emit('cleared');
+      io.sockets.emit('cleared');
     });
   });
 
