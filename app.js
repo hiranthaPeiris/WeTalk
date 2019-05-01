@@ -38,12 +38,13 @@ app.use('/users', usersRouter);
 app.use('/mongo',mongoRouter);
 
 //monog connect
+var collection;
 db.connect((err)=>{
   if(err){
     console.log("Unable to connect");
   }else{
     console.log("connected on socket");
-    var chat = db.getDB().collection("chat_log");
+    collection = db.getDB().collection("chat_log");
   }
 });
 
@@ -51,8 +52,15 @@ db.connect((err)=>{
 io.on('connection', function (socket) {
   console.log("new Connection");
 
-  // collection connect
- 
+  // collection connect and emit
+  collection.find().limit(100).sort({_id:1}).toArray((err,res)=>{
+    if(err){
+      console.log(err);
+    }else{
+      //emit changes
+      socket.emit('chat',res);
+    }
+  });
 
   
   //Handle a chat event 
@@ -62,10 +70,24 @@ io.on('connection', function (socket) {
     if (rst.error) {
       console.log("fields empty");
     } else {
-      io.sockets.emit('chat', data);
-      console.log("messeage emited");
+      let name = data.name;
+      let message = data.message;
+
+      collection.insertOne({name:name, message: message},()=>{
+        io.sockets.emit('chat', [data]);
+        console.log("messeage emited");
+      });
     }
   });
+
+  //clear chat_log
+  socket.on('clear',(data)=>{
+    collection.remove({},()=>{
+      console.log("collection cleared..");
+      socket.emit('cleared');
+    });
+  });
+
 });
 
 
@@ -87,8 +109,8 @@ app.use(function (err, req, res, next) {
 
 function validationMessage(data) {
   const schema = {
-    message: Joi.string().required(),
-    handle: Joi.string().required()
+    name: Joi.string().required(),
+    message: Joi.string().required()
   };
   var rst = Joi.validate(data, schema);
   return rst;
