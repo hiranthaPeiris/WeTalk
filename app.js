@@ -73,6 +73,7 @@ io.on('connection', function (socket) {
       let name = data.name;
       let message = data.message;
 
+      //collection emit
       collection.insertOne({name:name, message: message},()=>{
         io.sockets.emit('chat', [data]);
         console.log("messeage emited");
@@ -84,6 +85,7 @@ io.on('connection', function (socket) {
   socket.on('clear',(data)=>{
     collection.remove({},()=>{
       console.log("collection cleared..");
+      //emit to all other sockets
       io.sockets.emit('cleared');
     });
   });
@@ -107,6 +109,7 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
+//Joi chat message validation
 function validationMessage(data) {
   const schema = {
     name: Joi.string().required(),
