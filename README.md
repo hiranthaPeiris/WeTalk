@@ -5,7 +5,7 @@
 [![GitHub](https://img.shields.io/github/forks/hiranthaPeiris/WeTalk.svg?style=flat-square)](https://github.com/hiranthaPeirs/WeTalk/network)
 [![GitHub followers](https://img.shields.io/github/followers/espadrine.svg?label=Follow&style=social)](https://github.com/hiranthaPeiris)
 
-We talk is a simple chat web application which runs on locally developed using nodeJs. This web app developed only for testing purposes and this not a complete version of the application. application will preform simple message sending and displaying on deferent localhost connections. 
+We talk is a simple chat web application which runs on locally developed using nodeJs. This web app developed only for testing purposes and this not a complete version of the application. application will preform simple message sending and displaying on deferent localhost connections. also this includes mongoDB chat logger connected with mongoDB Atlas cluster.
 ## Getting Started
 Clone the repo as a git clone or any other refered method.
 ```bash
