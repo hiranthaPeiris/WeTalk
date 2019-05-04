@@ -16,6 +16,7 @@ cd WeTalk
 The following things will be needed to make any developments 
 * Node 8
 * Git installed on pc
+
 **Optional** 
 * MongoDB Atlas free tire cluster 
 ### Install
