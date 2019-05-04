@@ -16,6 +16,8 @@ cd WeTalk
 The following things will be needed to make any developments 
 * Node 8
 * Git installed on pc
+**Optional** 
+* MongoDB Atlas free tire cluster 
 ### Install
 Install the package dependancies 
 ```bash
@@ -27,6 +29,8 @@ First we have to start the server in order to see the functionality
 npm start
 ```
 > warning-->> app takes few seconds to connect and load the data from atlas cloud server. connect to the web socket after the console log message
+
+If you have a cluster in mongoDB then get the connection string and past it in the db settings (configs->db.js) if not follow the documentation on creating DB in mongo or also can use db in locally [Create an Atlas Free Tier Cluster](https://docs.mongodb.com/manual/tutorial/atlas-free-tier-setup/).
 
 This will start the server and open the browser,
 Go to:  [http://localhost:3000](http://localhost:3000) and take a look
