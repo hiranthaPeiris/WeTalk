@@ -44,7 +44,7 @@ Go to:  [http://localhost:3000](http://localhost:3000) and take a look
 * Joi for validations
 
 This package is a nodejs express complete application skeleton with EJS as view engine. you need to have a little knowledge of ejs which is a html preproccessor similar as sass for css. [Socket.io](https://socket.io/) is used as the web socket to make connections. 
-Joi npm package is used for message validation purposes. 
+Joi npm package is used for message validation purposes. i have used mongoDB to keep pervious chat logs. since this is a public chat room, anyone connecting to the cluster will get the same chat log. and also any endpoint can erase the log completely. 
 
 ## Contributing
 Feel to make any changes and developments. checkout [contribution.md](https://github.com/hiranthaPeiris/WeTalk/blob/master/CONTRIBUTING.md) for guidelines. 
