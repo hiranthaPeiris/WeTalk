@@ -40,7 +40,7 @@ Go to:  [http://localhost:3000](http://localhost:3000) and take a look
 * NodeJs
 * Express
 * Socket.io
-* mongoDB
+* mongoDB 
 * Joi for validations
 
 This package is a nodejs express complete application skeleton with EJS as view engine. you need to have a little knowledge of ejs which is a html preproccessor similar as sass for css. [Socket.io](https://socket.io/) is used as the web socket to make connections. 
@@ -50,5 +50,5 @@ Joi npm package is used for message validation purposes. i have used mongoDB to 
 Feel to make any changes and developments. checkout [contribution.md](https://github.com/hiranthaPeiris/WeTalk/blob/master/CONTRIBUTING.md) for guidelines. 
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/hiranthaPeiris/WeTalk/blob/master/LICENSE) file for details..
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/hiranthaPeiris/WeTalk/blob/master/LICENSE) file for details....
 
