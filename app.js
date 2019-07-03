@@ -119,4 +119,4 @@ function validationMessage(data) {
   return rst;
 }
 
-module.exports = { app: app, server: server };
+module.exports = { app, server };
